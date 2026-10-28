@@ -262,15 +262,16 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
     .atlas-title {
       display: flex;
       align-items: baseline;
+      justify-self: center;
       gap: 9px;
       min-width: 0;
     }
 
     .atlas-title strong {
       font-family: var(--hei);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 900;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
     }
 
     .atlas-title span {
@@ -1402,12 +1403,8 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
         justify-content: center;
         padding-bottom: 5px;
       }
-      .atlas-title { display: none; }
-      .motto {
-        justify-content: center;
-        font-size: 14px;
-        letter-spacing: 0.15em;
-      }
+      .atlas-title { display: flex; justify-content: center; }
+      .motto { display: none; }
       .map-frame { border-radius: 10px; }
       .compass { top: 18px; left: 19px; }
       .scope-pill {
@@ -1632,8 +1629,8 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
     <main class="layout">
       <section class="atlas-column" aria-label="骆门子弟全国分布图">
         <div class="atlas-heading">
-          <div class="atlas-title"><strong>师门山河图</strong><span>全国地理分布</span></div>
           <div class="motto">知明行笃 · <b>立诚致广</b></div>
+          <div class="atlas-title"><strong>骆门山河图</strong><span>全国地理分布</span></div>
           <div class="atlas-meta">标准地形版图 · 南海诸岛附图</div>
         </div>
 
