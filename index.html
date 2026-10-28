@@ -91,9 +91,9 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
       position: relative;
       z-index: 3;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      align-items: end;
-      gap: 30px;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(14px, 2vw, 30px);
       padding: 0 3px 14px;
       border-bottom: 1px solid rgba(60, 71, 57, 0.22);
     }
@@ -110,10 +110,13 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
 
     .brand {
       display: flex;
-      align-items: flex-end;
-      gap: clamp(14px, 2.2vw, 32px);
+      align-items: center;
+      justify-self: center;
+      gap: clamp(12px, 1.5vw, 22px);
       min-width: 0;
     }
+
+    .brand-copy { text-align: center; }
 
     .brand-seal {
       position: relative;
@@ -181,7 +184,7 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
     .masthead-side {
       display: flex;
       align-items: center;
-      gap: clamp(18px, 2.4vw, 38px);
+      justify-self: start;
     }
 
     .stats {
@@ -215,6 +218,7 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
     }
 
     .seal-stack {
+      justify-self: end;
       display: grid;
       grid-template-columns: 1fr 1fr;
       place-items: center;
@@ -451,18 +455,19 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
 
     .route {
       fill: none;
-      stroke: rgba(181, 72, 50, 0.23);
-      stroke-width: 1.15;
-      stroke-dasharray: 3 7;
+      stroke: rgba(177, 64, 42, 0.5);
+      stroke-width: 1.65;
+      stroke-dasharray: 3 6;
       stroke-linecap: round;
       vector-effect: non-scaling-stroke;
       pointer-events: none;
-      animation: routeMove 18s linear infinite;
+      filter: drop-shadow(0 0 1.2px rgba(255, 252, 240, 0.95));
+      animation: routeMove 12s linear infinite;
     }
 
     .route.is-hot {
-      stroke: rgba(181, 72, 50, 0.74);
-      stroke-width: 2;
+      stroke: rgba(177, 64, 42, 0.9);
+      stroke-width: 2.35;
       animation-duration: 2.2s;
     }
 
@@ -570,6 +575,27 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
     .city.origin .apricot-heart { fill: #efc662; }
     .city.origin .city-label-bg { fill: #fff3d7; stroke: rgba(181, 72, 50, 0.4); }
     .city.origin .city-label-text { fill: var(--cinnabar-deep); }
+
+    .origin-orbit {
+      fill: none;
+      stroke: rgba(181, 72, 50, 0.5);
+      stroke-width: 1;
+      stroke-dasharray: 2 4;
+      vector-effect: non-scaling-stroke;
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: originOrbit 9s linear infinite;
+    }
+
+    .origin-orbit.outer {
+      stroke: rgba(181, 72, 50, 0.24);
+      stroke-dasharray: 1.5 7;
+      animation-direction: reverse;
+    }
+
+    @keyframes originOrbit {
+      to { transform: rotate(360deg); }
+    }
 
     .map-overlay {
       position: absolute;
@@ -1584,6 +1610,14 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
 
   <div class="app">
     <header class="masthead">
+      <div class="masthead-side">
+        <div class="stats" aria-label="数据摘要">
+          <div class="stat"><strong id="statStudents">—</strong><span>门生</span></div>
+          <div class="stat"><strong id="statCities">—</strong><span>城市</span></div>
+          <div class="stat"><strong id="statCohorts">—</strong><span>届别</span></div>
+          <div class="stat"><strong id="statWishes">—</strong><span>寄语</span></div>
+        </div>
+      </div>
       <div class="brand">
         <div class="brand-seal" aria-hidden="true">骆</div>
         <div class="brand-copy">
@@ -1592,15 +1626,7 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
           <p class="subtitle">福建师范大学 · 骆培聪教授门生 · 2004至2026届</p>
         </div>
       </div>
-      <div class="masthead-side">
-        <div class="stats" aria-label="数据摘要">
-          <div class="stat"><strong id="statStudents">—</strong><span>门生</span></div>
-          <div class="stat"><strong id="statCities">—</strong><span>城市</span></div>
-          <div class="stat"><strong id="statCohorts">—</strong><span>届别</span></div>
-          <div class="stat"><strong id="statWishes">—</strong><span>寄语</span></div>
-        </div>
-        <div class="seal-stack" aria-label="桃李满门印章"><span>桃</span><span>李</span><span>满</span><span>门</span></div>
-      </div>
+      <div class="seal-stack" aria-label="桃李满门印章"><span>桃</span><span>李</span><span>满</span><span>门</span></div>
     </header>
 
     <main class="layout">
@@ -2081,6 +2107,10 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
       const radius = city === sourceCity ? 8 : clamp(4.8 + Math.sqrt(students.length) * 0.55, 5.2, 7.2);
       svgEl("circle", { r: Math.max(4.8, radius * 0.8), fill: "transparent", "pointer-events": "all" }, scale);
       svgEl("circle", { class: "city-pulse", r: radius + 5 }, scale);
+      if (city === sourceCity) {
+        svgEl("circle", { class: "origin-orbit", r: radius + 7 }, scale);
+        svgEl("circle", { class: "origin-orbit outer", r: radius + 13 }, scale);
+      }
 
       const petals = svgEl("g", {}, scale);
       for (let index = 0; index < 5; index++) {
