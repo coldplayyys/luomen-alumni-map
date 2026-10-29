@@ -166,7 +166,7 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
       margin: 0;
       color: #172820;
       font-family: var(--hei);
-      font-size: clamp(38px, 4.4vw, 68px);
+      font-size: clamp(44px, 5vw, 80px);
       font-weight: 900;
       line-height: 0.94;
       letter-spacing: 0.055em;
@@ -244,7 +244,7 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
 
     .layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) clamp(330px, 23.5vw, 390px);
+      grid-template-columns: minmax(0, 1fr) clamp(350px, 25vw, 410px);
       gap: clamp(13px, 1.3vw, 20px);
       min-height: 0;
       padding-top: 13px;
@@ -615,7 +615,7 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
     }
 
     .map-title-inside {
-      top: 48px;
+      top: 82px;
       left: 50%;
       display: flex;
       align-items: baseline;
@@ -632,7 +632,7 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
 
     .map-title-inside strong {
       font-family: var(--hei);
-      font-size: 17px;
+      font-size: 21px;
       font-weight: 900;
       letter-spacing: 0.1em;
     }
@@ -1006,7 +1006,7 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
     .year-row {
       position: relative;
       display: grid;
-      grid-template-columns: 46px minmax(0, 1fr);
+      grid-template-columns: 44px minmax(0, 1fr);
       align-items: center;
       min-height: 0;
       border-bottom: 1px solid rgba(72, 84, 65, 0.09);
@@ -1086,7 +1086,7 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
       background: transparent;
       cursor: pointer;
       font-family: var(--kai);
-      font-size: clamp(9.5px, 0.86vw, 12.6px);
+      font-size: clamp(10.4px, 0.9vw, 13.8px);
       line-height: 1.08;
       white-space: nowrap;
     }
@@ -1380,12 +1380,16 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
       transform: translate(-50%, -50%);
     }
 
+    @media (max-width: 1400px) {
+      .student-link { font-size: 12px; }
+    }
+
     @media (max-width: 1180px) {
       .stats { grid-template-columns: repeat(2, minmax(52px, auto)); gap: 10px 18px; }
       .stat strong { font-size: 18px; }
-      .layout { grid-template-columns: minmax(0, 1fr) 320px; }
+      .layout { grid-template-columns: minmax(0, 1fr) 330px; }
       .timeline { padding-left: 21px; }
-      .student-link { font-size: 11px; }
+      .student-link { font-size: 11.2px; }
     }
 
     @media (max-width: 900px) {
@@ -1421,7 +1425,7 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
         font-size: 21px;
       }
       h1 {
-        font-size: clamp(29px, 8.7vw, 41px);
+        font-size: clamp(34px, 9.4vw, 47px);
         letter-spacing: 0.02em;
       }
       .overline { font-size: 8px; }
@@ -1445,10 +1449,10 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
         letter-spacing: 0.12em;
       }
       .map-title-inside {
-        top: 38px;
+        top: 62px;
         padding: 4px 9px;
       }
-      .map-title-inside strong { font-size: 15px; }
+      .map-title-inside strong { font-size: 18px; }
       .map-title-inside span { font-size: 8px; }
       .map-frame { border-radius: 10px; }
       .compass { top: 18px; left: 19px; }
@@ -1488,7 +1492,7 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
       .qr-card span { font-size: 6.8px; }
       .chronicle-actions { padding-inline: 14px; }
       .timeline { padding: 4px 10px 4px 21px; }
-      .student-link { font-size: 9.5px; }
+      .student-link { font-size: 10.4px; }
       .year-row { grid-template-columns: 43px minmax(0, 1fr); }
       .year-key b { font-size: 10px; }
       .year-key span { font-size: 7px; }
@@ -1541,7 +1545,7 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
         height: 14mm;
         font-size: 18pt;
       }
-      h1 { font-size: 31pt; }
+      h1 { font-size: 35pt; }
       .subtitle { margin-top: 1.5mm; font-size: 8pt; }
       .stat strong { font-size: 15pt; }
       .stat span { font-size: 6.5pt; }
@@ -1564,10 +1568,10 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
       .motto { font-size: 11pt; }
       .atlas-meta { font-size: 6.5pt; }
       .map-title-inside {
-        top: 4mm;
+        top: 8mm;
         padding: 1mm 3mm;
       }
-      .map-title-inside strong { font-size: 11pt; }
+      .map-title-inside strong { font-size: 13pt; }
       .map-title-inside span { font-size: 6pt; }
       .map-frame,
       .chronicle {
@@ -1623,7 +1627,7 @@ window.STUDENT_DATA = [{"name":"董芙蓉","city":"曲阜","class":"2008届","wi
       .year-row { grid-template-columns: 10mm minmax(0, 1fr); }
       .year-key b { font-size: 7pt; }
       .year-key span { font-size: 5.5pt; }
-      .student-link { font-size: 8.2pt; }
+      .student-link { font-size: 9pt; }
       .empty-year { font-size: 5.5pt; }
       .chronicle-foot {
         padding: 1.4mm 3mm;
